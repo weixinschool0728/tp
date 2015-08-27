@@ -8,10 +8,12 @@ class FontEndController extends Controller {
 
     function __construct() {
         parent::__construct();
-        if(ismobile()){
-//            C("DEFAULT_THEME","Mobile);
+        $ismobile=ismobile();
+        if($ismobile){
+            C("DEFAULT_THEME","Mobile");
             C("TMPL_CACHE_PREFIX","mb");
         }
+        $this->assign("ismobile",$ismobile);
     }
 
 }
