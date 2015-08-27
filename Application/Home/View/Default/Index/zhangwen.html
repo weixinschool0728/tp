@@ -1,21 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" class="loading">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-<meta name="keywords" content="CSS酷站收录站 uehtml 网页设计 DIV+CSS Javascript 酷站 酷站收录 网站设计 网页设计 CSS3" />
-<meta name="description" content="优艺客 设计师网站">
-<meta name="author" content="优艺客" />
-<link rel="stylesheet" type="text/css" href="__PUBLIC_HOME__/css/style.css" />
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="telephone=no" name="format-detection">
-<link rel="apple-touch-icon-precomposed" href="http://www.17sucai.com/static/images/favicon.ico">
-<script>
-var logined = 0
-</script>
-<title>仿UEhtml自适应触屏版html5手机网站模板/</title>
+<include file="Public/header"/>
+<title></title>
 </head>
 
 <body>
@@ -31,7 +15,7 @@ var logined = 0
 			<li class="nav_site"><a href="index.html"><i></i><span>设计师</span><b></b><div class="clear"></div></a></li>
 			<li class="nav_help"><a href="index.html"><i></i><span>帮帮忙</span><b></b><div class="clear"></div></a></li>
 			<li class="nav_about"><a href="index.html"><i></i><span>关于我们</span><b></b><div class="clear"></div></a></li>
-			<li class="nav_about"><a href="{U(index/index)}"><i></i><span>大U方法</span><b></b><div class="clear"></div></a></li>
+            <li class="nav_about"><a href="<{:U('index')}>"><i></i><span>大U方法</span><b></b><div class="clear"></div></a></li>
 		</ul>
 	</div>
 		<div id="user">
@@ -64,7 +48,7 @@ var logined = 0
 		<div class="wrap">
 			<i class="menu_back"><a href="index.html"></a></i>
 			<div class="title">
-				<span class="title_d"><p>UEMO用户图片排序问题</p></span>
+				<span class="title_d"><p><{$model['name']}></p></span>
 				<div class="clear"></div>
 			</div>
 			<i class="menu_share"></i>
@@ -105,7 +89,7 @@ var logined = 0
 										
 										<div class="clear"></div>
 											<div class="article_ct">
-						<p><img src="__PUBLIC_HOME__/images/1421906192522_1140x0.jpg" /></p>
+                                                <p><img src="<{$model.pic_url}>"/></p>
 						</div>
 						<div class="clear"></div>
 										
@@ -348,9 +332,4 @@ var logined = 0
 			</ul>
 		</div>
 	</div>
-	<script language="javascript" src="__PUBLIC_HOME__/js/zepto.min.js"></script>
-	<script language="javascript" src="__PUBLIC_HOME__/js/fx.js"></script>
-	<script language="javascript" src="__PUBLIC_HOME__/js/script.js"></script>
-
-</body>
-</html>
+<include file="Public/footer"/>

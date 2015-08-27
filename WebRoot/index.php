@@ -22,6 +22,7 @@ define('APP_PATH','../Application/');
 define('PUBLIC_PATH','/Public');
 define("PUBLIC_HOME_PATH",PUBLIC_PATH."/Home/");
 define("PUBLIC_ADMIN_PATH",PUBLIC_PATH."/Admin/");
+define("PUBLIC_COMMON_PATH",PUBLIC_PATH."/Common/");
 // 引入ThinkPHP入口文件
 require '../ThinkPHP/ThinkPHP.php';
 

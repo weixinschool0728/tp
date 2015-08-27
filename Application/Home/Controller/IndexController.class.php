@@ -1,30 +1,41 @@
 <?php
-namespace Home\Controller;
-use Think\Controller;
-class IndexController extends Controller {
-        var $pernum=10;
-    public function index(){
-        $a=M("modelsinfo");
-        
-        $page=$_GET['page'] && $_GET['page']>0?$_GET['page']:1;
-        $data=$a->cache("modelinfo{$page}",60,'file')->limit($this->pernum*($page-1),10)->order(array("modelid desc","jiguan"))->select();
-        if(S("modelinfo".$page)){
-            echo 1111;
-            dump(S("modelinfo".$page));
-        }else{
-            echo '22222';
-            $data['echoo']="select";
-            var_dump($data);
-        }
-        
-       
-      
 
-//   $this->display();
-        // $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover,{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
-    }
-    public function zhengwen() {
+namespace Home\Controller;
+
+//use Think\Controller;
+use Home\Controller;
+
+class IndexController extends FontEndController {
+
+    var $pernum = 10;
+
+    public function index() {
+
+        $a = M("modelsinfo");
+
+        $page = $_GET['page'] && $_GET['page'] > 0 ? $_GET['page'] : 1;
+
+        if (S("modelinfo" . $page)) {
+            $data = S("modelinfo" . $page);
+        } else {
+            $data = $a->cache("modelinfo{$page}", 60, 'file')->limit($this->pernum * ($page - 1), 10)->order(array("modelid desc", "jiguan"))->select();
+        }
+//        var_dump($data);
+
+
+        $this->assign("models", $data);
 
         $this->display();
+        unset($a);
     }
+
+    public function zhangwen() {
+        $m = M("modelsinfo");
+        $data = $m->where(array("modelid" => $_GET['id']))->find();
+//        myxiaTest();
+        $this->assign("model", $data);
+//        dump($data);
+        $this->display();
+    }
+
 }
