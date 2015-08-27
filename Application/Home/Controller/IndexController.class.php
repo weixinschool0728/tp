@@ -7,7 +7,7 @@ use Home\Controller;
 
 class IndexController extends FontEndController {
 
-    var $pernum = 10;
+    var $pernum = 30;
 
     public function index() {
 
